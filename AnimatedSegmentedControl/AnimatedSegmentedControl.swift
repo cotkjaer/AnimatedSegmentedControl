@@ -12,8 +12,8 @@ import UIKit
 {
     private var labels: [UILabel] = []
     
-    private let selectionIndicatorView = UIImageView()
-//    private let selectionIndicatorImageView = UIImageView()
+    @IBInspectable open let selectionIndicatorView = UIImageView()
+ 
     open var items: [String] = ["Item 1", "Item 2", "Item 3"] {
         didSet {
             setupLabels()
@@ -107,6 +107,7 @@ import UIKit
         addIndividualItemConstraints(labels, mainView: self, padding: 0)
         
         selectionIndicatorView.image = selectionIndicatorImage
+        selectionIndicatorView.contentMode = .scaleAspectFit
         
         insertSubview(selectionIndicatorView, at: 0)
     }
@@ -123,7 +124,7 @@ import UIKit
             label.text = item
             label.backgroundColor = UIColor.clear
             label.textAlignment = .center
-            label.font = UIFont(name: "Avenir-Black", size: 15)
+            label.font = UIFont.systemFont(ofSize: UIFont.buttonFontSize)
             label.textColor = index == selectedIndex ? selectedTextColor : unselectedTextColor
             label.translatesAutoresizingMaskIntoConstraints = false
             
