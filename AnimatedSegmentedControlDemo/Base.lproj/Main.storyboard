@@ -45,6 +45,7 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                         <real key="value" value="2"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="selectionIndicatorImage" value="Ice"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
@@ -60,4 +61,7 @@
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="Ice" width="600" height="600"/>
+    </resources>
 </document>

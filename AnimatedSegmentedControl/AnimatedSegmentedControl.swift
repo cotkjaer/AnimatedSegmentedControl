@@ -12,8 +12,8 @@ import UIKit
 {
     private var labels: [UILabel] = []
     
-    private let selectionIndicatorView = UIView()
-    
+    private let selectionIndicatorView = UIImageView()
+//    private let selectionIndicatorImageView = UIImageView()
     open var items: [String] = ["Item 1", "Item 2", "Item 3"] {
         didSet {
             setupLabels()
@@ -45,6 +45,15 @@ import UIKit
             updateColors()
         }
     }
+    
+    @IBInspectable open var selectionIndicatorImage: UIImage?
+        {
+        didSet {
+            updateColors()
+        }
+    }
+    
+    
     
     @IBInspectable open var borderColor: UIColor = UIColor.white {
         didSet {
@@ -96,6 +105,8 @@ import UIKit
         setupLabels()
         
         addIndividualItemConstraints(labels, mainView: self, padding: 0)
+        
+        selectionIndicatorView.image = selectionIndicatorImage
         
         insertSubview(selectionIndicatorView, at: 0)
     }
